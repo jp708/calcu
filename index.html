@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora en C++ - Resumen estilo W3Schools</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculadora en C++</h1>
+            <p>Resumen de conceptos básicos (estilo W3Schools) + explicación del código</p>
+        </header>
+
+        <div class="content">
+            <section>
+                <h2>Introducción</h2>
+                <p>Esta página funciona como un <strong>resumen de material básico de C++</strong> (similar a lo que se ve en W3Schools) y explica cómo se construyó una calculadora funcional usando esos conceptos.</p>
+                <p>La calculadora permite operaciones básicas (+, -, *, /) y avanzadas (^ y %). Incluye validación de entrada y un bucle para hacer varios cálculos.</p>
+                <div class="explanation">
+                    <strong>Nota:</strong> C++ se compila y se ejecuta en la terminal. Aquí usamos solo HTML y CSS para mostrar y explicar el código. El archivo <code>calculadora.cpp</code> está en el ZIP.
+                </div>
+            </section>
+
+            <section>
+                <h2>Resumen de conceptos básicos de C++ (estilo W3Schools)</h2>
+                <p>Estos son los conceptos fundamentales que aparecen en el código o que es importante conocer:</p>
+
+                <h3>Variables y tipos de datos</h3>
+                <div class="explanation">
+                    <p>Una variable es un espacio en memoria donde guardamos un valor.</p>
+                    <ul>
+                        <li><code>int</code> → números enteros (1, 42, -5)</li>
+                        <li><code>double</code> → números con decimales (3.14, 10.5)</li>
+                        <li><code>char</code> → un solo carácter ('+', 'A')</li>
+                        <li><code>std::string</code> → texto ("hola", "q")</li>
+                    </ul>
+                    <p>Ejemplo: <code>double num1 = 10.5;</code></p>
+                </div>
+
+                <h3>Operadores</h3>
+                <div class="explanation">
+                    <ul>
+                        <li>Aritméticos: <code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code></li>
+                        <li>Comparación: <code>==</code> <code>!=</code> <code><</code> <code>></code></li>
+                        <li>Lógicos: <code>&&</code> (y) <code>||</code> (o) <code>!</code> (no)</li>
+                    </ul>
+                </div>
+
+                <h3>if / else (condicionales)</h3>
+                <div class="explanation">
+                    <p>Sirven para tomar decisiones. Si una condición es verdadera se ejecuta un bloque de código, si no, se ejecuta otro.</p>
+                    <pre><code>if (b == 0) {
+    cout << "Error: división por cero";
+} else {
+    cout << a / b;
+}</code></pre>
+                    <p>En la calculadora lo usamos para evitar dividir por cero.</p>
+                </div>
+
+                <h3>switch</h3>
+                <div class="explanation">
+                    <p>Es como un if-else múltiple, muy útil cuando comparas un valor con varios casos posibles.</p>
+                    <pre><code>switch (op) {
+    case '+': return a + b;
+    case '-': return a - b;
+    default:  cout << "Operador inválido";
+}</code></pre>
+                    <p>Lo usamos en la función <code>calcular()</code> para elegir la operación.</p>
+                </div>
+
+                <h3>Bucles: while y for</h3>
+                <div class="explanation">
+                    <p><strong>while</strong>: repite un bloque mientras una condición sea verdadera.</p>
+                    <pre><code>while (true) {          // se repite siempre
+    // pedir números y operar
+    if (entrada == "q") break;  // salir del bucle
+}</code></pre>
+                    <p>En la calculadora usamos <code>while(true)</code> para poder hacer varios cálculos seguidos.</p>
+
+                    <p><strong>for</strong>: se usa cuando sabes cuántas veces quieres repetir algo (o para recorrer algo).</p>
+                    <pre><code>for (int i = 1; i <= 10; i++) {
+    cout << i << " ";
+}
+// Imprime: 1 2 3 4 5 6 7 8 9 10</code></pre>
+                    <p>Aunque no lo usamos en esta calculadora, es muy común para repetir acciones un número fijo de veces o recorrer arrays.</p>
+                </div>
+
+                <h3>Funciones</h3>
+                <div class="explanation">
+                    <p>Una función es un bloque de código que hace una tarea específica y se puede reutilizar.</p>
+                    <ul>
+                        <li>Puede recibir parámetros (datos de entrada).</li>
+                        <li>Puede devolver un resultado (<code>return</code>).</li>
+                    </ul>
+                    <p>En el código tenemos dos funciones propias: <code>limpiarBuffer()</code> y <code>calcular()</code>.</p>
+                </div>
+
+                <h3>Entrada y salida (cin y cout)</h3>
+                <div class="explanation">
+                    <ul>
+                        <li><code>std::cout</code> → muestra texto en pantalla.</li>
+                        <li><code>std::cin</code> → lee lo que escribe el usuario.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Demo visual de la calculadora</h2>
+                <p>Representación visual. La versión real funciona en la terminal al compilar el código C++.</p>
+                <div class="calculator-demo">
+                    <div class="calc-screen">0</div>
+                    <div class="calc-buttons">
+                        <div class="calc-btn">7</div><div class="calc-btn">8</div><div class="calc-btn">9</div><div class="calc-btn op">/</div>
+                        <div class="calc-btn">4</div><div class="calc-btn">5</div><div class="calc-btn">6</div><div class="calc-btn op">*</div>
+                        <div class="calc-btn">1</div><div class="calc-btn">2</div><div class="calc-btn">3</div><div class="calc-btn op">-</div>
+                        <div class="calc-btn">0</div><div class="calc-btn">.</div><div class="calc-btn eq">=</div><div class="calc-btn op">+</div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Código completo de la calculadora (calculadora.cpp)</h2>
+                <pre><code>#include <iostream>
+#include <limits>
+#include <cmath>
+
+// Función para limpiar el buffer de entrada
+void limpiarBuffer() {
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
+
+// Función para realizar la operación
+double calcular(double a, double b, char op) {
+    switch (op) {
+        case '+': return a + b;
+        case '-': return a - b;
+        case '*': return a * b;
+        case '/': 
+            if (b == 0) {
+                throw std::runtime_error("Error: División por cero");
+            }
+            return a / b;
+        case '^': return std::pow(a, b);
+        case '%': 
+            if (b == 0) {
+                throw std::runtime_error("Error: Módulo por cero");
+            }
+            return std::fmod(a, b);
+        default:
+            throw std::invalid_argument("Operador no válido");
+    }
+}
+
+int main() {
+    std::cout << "=====================================\n";
+    std::cout << "     CALCULADORA EN C++ \n";
+    std::cout << "=====================================\n";
+    std::cout << "Operaciones soportadas: + - * / ^ %\n";
+    std::cout << "Escribe 'q' para salir.\n\n";
+
+    while (true) {
+        double num1, num2;
+        char op;
+        std::string entrada;
+
+        std::cout << "Ingresa el primer número (o 'q' para salir): ";
+        std::cin >> entrada;
+
+        if (entrada == "q" || entrada == "Q") {
+            std::cout << "¡Hasta luego!\n";
+            break;
+        }
+
+        try {
+            num1 = std::stod(entrada);
+        } catch (...) {
+            std::cout << "Entrada inválida. Intenta de nuevo.\n";
+            limpiarBuffer();
+            continue;
+        }
+
+        std::cout << "Ingresa el operador (+, -, *, /, ^, %): ";
+        std::cin >> op;
+
+        std::cout << "Ingresa el segundo número: ";
+        std::cin >> num2;
+
+        if (std::cin.fail()) {
+            std::cout << "Número inválido.\n";
+            limpiarBuffer();
+            continue;
+        }
+
+        try {
+            double resultado = calcular(num1, num2, op);
+            std::cout << "\nResultado: " << num1 << " " << op << " " << num2 << " = " << resultado << "\n\n";
+        } catch (const std::exception& e) {
+            std::cout << e.what() << "\n\n";
+        }
+
+        limpiarBuffer();
+    }
+
+    return 0;
+}</code></pre>
+            </section>
+
+            <section>
+                <h2>Explicación del código usando los conceptos básicos</h2>
+
+                <h3>1. Librerías (#include)</h3>
+                <div class="explanation">
+                    <p>Al principio del programa incluimos librerías que nos dan herramientas ya hechas:</p>
+                    <ul>
+                        <li><code><iostream></code> → para <code>cin</code> y <code>cout</code></li>
+                        <li><code><limits></code> → para limpiar el buffer correctamente</li>
+                        <li><code><cmath></code> → para funciones matemáticas como potencia y módulo</li>
+                    </ul>
+                </div>
+
+                <h3>2. Función limpiarBuffer()</h3>
+                <div class="explanation">
+                    <p>Cuando el usuario escribe algo mal, el programa puede quedarse con basura en la entrada. Esta función limpia eso para que el siguiente intento funcione bien.</p>
+                </div>
+
+                <h3>3. Función calcular() – usa switch e if</h3>
+                <div class="explanation">
+                    <p>Recibe dos números y un operador. Con <strong>switch</strong> decide qué operación hacer. Dentro de los casos de división y módulo usa <strong>if</strong> para comprobar que no se divida por cero.</p>
+                </div>
+
+                <h3>4. main() – el bucle while + if</h3>
+                <div class="explanation">
+                    <ul>
+                        <li>Muestra el menú de bienvenida.</li>
+                        <li>Entra en un <strong>while(true)</strong> para repetir cálculos.</li>
+                        <li>Usa <strong>if</strong> para detectar si el usuario escribió "q" y salir.</li>
+                        <li>Convierte el texto a número y llama a <code>calcular()</code>.</li>
+                        <li>Muestra el resultado o un mensaje de error.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Cómo compilar y ejecutar</h2>
+                <div class="explanation">
+                    <ol>
+                        <li>Abre una terminal en la carpeta del archivo.</li>
+                        <li>Compila:<br><code>g++ -o calculadora calculadora.cpp -std=c++17</code></li>
+                        <li>Ejecuta:<br><code>./calculadora</code> (Linux/Mac) o <code>calculadora.exe</code> (Windows)</li>
+                        <li>Escribe <code>q</code> para salir.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section>
+                <h2>Resumen final</h2>
+                <p>Con conceptos básicos de C++ (variables, if, switch, while, funciones, cin/cout) hemos creado una calculadora completa y robusta. El bucle <strong>for</strong> no se usó aquí, pero es muy útil cuando necesitas repetir algo un número fijo de veces.</p>
+                <p>Todo está incluido en este ZIP: la página (HTML + CSS) y el código fuente (<code>calculadora.cpp</code>).</p>
+            </section>
+        </div>
+
+        <footer>
+            Calculadora en C++ • Explicación estilo resumen W3Schools • Solo HTML y CSS
+        </footer>
+    </div>
+</body>
+</html>
